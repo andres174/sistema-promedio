@@ -1,10 +1,10 @@
-
 <nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e1e1e1;">
-    <div class="container-fluid mx-5" >
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/Modern Business Numerical Logo.png" alt="AAAAAAAAA" width="100" height="100" class="d-inline-block align-text-top">
+    <div class="container-fluid mx-5">
+        <a class="navbar-brand" routerLink="/">
+            <img src="assets/img/Modern Business Numerical Logo.png" alt="Logo" width="100" height="100"
+                class="d-inline-block align-text-top" style="border-radius: 10px;">
             <!-- Bootstrap -->
-          </a>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,87 +15,27 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link active mx-3 btn btn-primary" (click)="addEstudiante()">Agregar Estudiante </a>
+                    <a class="nav-link active mx-3 " routerLink="estudiantes">Agregar Estudiante </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active mx-3 btn" href="#">Ingresar Notas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active mx-3 btn">Ingresar Exámen</a>
+                    <a class="nav-link active mx-3 " routerLink="notas">Ingresar Notas</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link active mx-3 btn">Calcular Promedios</a>
+                    <a class="nav-link active mx-3 " routerLink="promedios">Calcular Promedios</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div id="cuerpo-principal" class="d-block" style="margin-top: 130px;">
+<div class="d-block cuerpo-principal">
 
-    <form [formGroup]="formPadre">
-        <div formArrayName="est">
-            <div *ngFor="let e of getControl('est', formPadre)?.controls; index as formHijo">
-                
-                <div class="" [formGroupName]="formHijo">
-                    <div class="row">
-                        <div class="col-4">
-                            <input type="text" formControlName="nombre">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="n1">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="n2">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="n3">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="n4">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="ex">
-                        </div>
-                        <div class="col-1">
-                            <input type="number" formControlName="prom">
-                        </div>
-
-                        
-                    </div>
-                </div>
-
-            </div>
-
-            <div>
-                
-                {{formPadre.value | json}}
-            </div>
-            
-        </div>
-    </form>
-    
-    
-    <!-- <div>
-        <div class="row">
-            <div class="col-5">
-                <div class="input-group mb-1">
-                    <input type="number" class="form-control" name="numEstudiantes" placeholder="Ingrese el numero de estudiantes" [(ngModel)]="numEstudiantes">
-                    <button class="btn btn-primary" (click)="crear()">G</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <div>
-        <h1>
-            {{numEstudiantes}}
-        </h1>
-    </div> -->
-    <!-- <div *ngFor="let item of nE;">
-        <input type="text" [(ngModel)]="listaEstudiante" (change)="ver()">
-        {{listaEstudiante}}
-    </div> -->
+    <router-outlet></router-outlet>
 
 </div>
 
-
+<footer class="pie-pagina-principal">
+    <div class="contenido-pie-pagina">
+        Lorem ipsum dolor sit amet consectetur.
+    </div>
+</footer>

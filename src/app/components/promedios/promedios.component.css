@@ -1,0 +1,17 @@
+.cuerpo-principal {
+    margin-top: 130px;
+    padding-bottom: 40px;
+}
+
+.pie-pagina-principal{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 35px;
+    background: #e1e1e1;;
+}
+
+/* .contenido-pie-pagina{
+    
+} */
