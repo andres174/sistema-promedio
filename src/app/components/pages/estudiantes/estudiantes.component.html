@@ -1,1 +1,36 @@
-<p>estudiantes works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-6 mt-2">
+            <form [formGroup]="formEstudiantes" (ngSubmit)="guardar()">
+                <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text mx-2">
+                            <span class="material-symbols-outlined">
+                                person_add
+                            </span>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nombre y apellido..." formControlName="nombre"
+                        [ngClass]="[formEstudiantes.get('nombre')?.errors?.['required']
+                        ? 'is-invalid' : 'is-valid' ]">
+                    <!-- <div *ngIf="!formEstudiantes.get('nombre')?.errors?.['required']&&!formEstudiantes.get('nombre')?.errors?.['pattern']"
+                        class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div *ngIf="formEstudiantes.get('nombre')?.errors?.['required']"
+                        class="form-text text-danger invalid-feedback">
+                        Debe llenar el campo
+                    </div> -->
+                    <div class="input-group-append mx-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            {{estudiantes | json}}
+        </div>
+    </div>
+</div>

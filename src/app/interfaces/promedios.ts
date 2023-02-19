@@ -1,6 +1,7 @@
 export interface EstudiantesInterface{
     id: number;
     nombre: string;
+    estado:number;
 }
 
 export interface NotasInterface{
