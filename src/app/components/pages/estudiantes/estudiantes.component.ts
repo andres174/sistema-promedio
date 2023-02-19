@@ -46,7 +46,9 @@ export class EstudiantesComponent implements OnInit {
           console.log(err);
         }
       });
+      this.formEstudiantes.reset();
     } else {
+      console.log("Campo vacío");
       this.formEstudiantes.markAllAsTouched();
     }
   }

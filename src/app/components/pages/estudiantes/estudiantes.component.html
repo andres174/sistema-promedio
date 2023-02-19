@@ -28,9 +28,24 @@
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            {{estudiantes | json}}
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-9">
+            
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr *ngFor="let e of estudiantes">
+                    <th scope="row">{{e.id}}</th>
+                    <td>{{e.nombre}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
         </div>
     </div>
 </div>
