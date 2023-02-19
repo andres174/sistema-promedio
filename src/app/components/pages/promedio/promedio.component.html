@@ -1,1 +1,59 @@
-<p>promedio works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center mt-5" *ngIf="!isAdd">
+        <div class="col-9">
+
+            <table class="table caption-top">
+                <caption>Estudiantes sin nota</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let e of estudiantesNota; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{e.nombre}}</td>
+                        <td>
+                            <span class="material-symbols-outlined btn" (click)="addNota(e.id)">
+                                add_circle
+                            </span>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table caption-top">
+                <caption>Estudiantes con nota</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Nota 1</th>
+                        <th scope="col">Nota 2</th>
+                        <th scope="col">nota 3</th>
+                        <th scope="col">Nota 4</th>
+                        <th scope="col">Exámen</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let e of estudiantesNota; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{e.nombre}}</td>
+                        <td>{{e.calificaciones[0].n1}}</td>
+                        <td>{{e.calificaciones[1].n2}}</td>
+                        <td>{{e.calificaciones[2].n3}}</td>
+                        <td>{{e.calificaciones[3].n4}}</td>
+                        <td>{{e.calificaciones[4].examen}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
