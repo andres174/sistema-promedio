@@ -15,7 +15,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link active mx-3 btn" href="#">Ingresar Estudiantes</a>
+                    <a class="nav-link active mx-3 btn btn-primary" (click)="addEstudiante()">Agregar Estudiante </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active mx-3 btn" href="#">Ingresar Notas</a>
@@ -32,6 +32,49 @@
 </nav>
 
 <div id="cuerpo-principal" class="d-block" style="margin-top: 130px;">
+
+    <form [formGroup]="formPadre">
+        <div formArrayName="est">
+            <div *ngFor="let e of getControl('est', formPadre)?.controls; index as formHijo">
+                
+                <div class="" [formGroupName]="formHijo">
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="text" formControlName="nombre">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="n1">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="n2">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="n3">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="n4">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="ex">
+                        </div>
+                        <div class="col-1">
+                            <input type="number" formControlName="prom">
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                
+                {{formPadre.value | json}}
+            </div>
+            
+        </div>
+    </form>
+    
     
     <!-- <div>
         <div class="row">

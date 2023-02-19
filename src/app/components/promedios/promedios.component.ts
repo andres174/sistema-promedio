@@ -26,9 +26,12 @@ export class PromediosComponent implements OnInit {
 
   listaEstudiante:string[] = [];
 
-  constructor() { }
+  constructor() {
+    this.initFormPadre();
+  }
 
   ngOnInit(): void {
+    
   }
 
   initFormPadre(){
@@ -39,13 +42,23 @@ export class PromediosComponent implements OnInit {
 
   initFormEstudiantes(): FormGroup {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required])
+      nombre: new FormControl('', [Validators.required]),
+      n1: new FormControl('', [Validators.required]),
+      n2: new FormControl('', [Validators.required]),
+      n3: new FormControl('', [Validators.required]),
+      n4: new FormControl('', [Validators.required]),
+      ex: new FormControl('', [Validators.required]),
+      prom: new FormControl('', [Validators.required]),
     });
   }
 
   addEstudiante(): void {
     const est = this.formPadre.get('est') as FormArray;
     est.push(this.initFormEstudiantes());
+  }
+
+  getControl(key: string, form: FormGroup): any{
+    return form.get(key);
   }
 
   crear(){
