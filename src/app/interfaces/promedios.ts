@@ -21,3 +21,4 @@ export interface PromedioInterface{
     id: number;
     promedio: number;
 }
+

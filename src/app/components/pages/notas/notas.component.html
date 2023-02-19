@@ -1,1 +1,118 @@
-<p>notas works!</p>
+<div class="container">
+
+    <div class="row d-flex justify-content-center" *ngIf="isAdd">
+
+        <div class="col-9">
+            <form [formGroup]="formNota" (ngSubmit)="guardar()">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <p>
+                            {{estSelect.nombre}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center m-2">
+                    <div class="col-6">
+                        <input type="number" class="form-control" placeholder="Nota 1" formControlName="n1" [ngClass]="[formNota.get('n1')?.errors?.['required']
+                        ? 'is-invalid' : 'is-valid' ]">
+                    </div>
+                    <div class="col-6">
+                        <input type="number" class="form-control" placeholder="Nota 2" formControlName="n2" [ngClass]="[formNota.get('n2')?.errors?.['required']
+                        ? 'is-invalid' : 'is-valid' ]">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center m-2">
+                    <div class="col-6">
+                        <input type="number" class="form-control" placeholder="Nota 3" formControlName="n3" [ngClass]="[formNota.get('n3')?.errors?.['required']
+                        ? 'is-invalid' : 'is-valid' ]">
+                    </div>
+                    <div class="col-6">
+                        <input type="number" class="form-control" placeholder="Nota 4" formControlName="n4" [ngClass]="[formNota.get('n4')?.errors?.['required']
+                        ? 'is-invalid' : 'is-valid' ]">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center m-2">
+                    <div class="col-6">
+                        <div class="input-group mb-1">
+                            <input type="number" class="form-control" placeholder="Exámen" formControlName="ex"
+                                [ngClass]="[formNota.get('ex')?.errors?.['required']
+                            ? 'is-invalid' : 'is-valid' ]">
+                            <div class="input-group-append mx-2">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    
+
+    <!-- TABLAS -->
+    <div class="row d-flex justify-content-center mt-5" *ngIf="!isAdd">
+        <div class="col-9">
+
+            <table class="table caption-top">
+                <caption>Estudiantes sin nota</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let e of estudiantes; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{e.nombre}}</td>
+                        <td>
+                            <span class="material-symbols-outlined btn" (click)="addNota(e.id)">
+                                add_circle
+                            </span>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table caption-top">
+                <caption>Estudiantes con nota</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Nota 1</th>
+                        <th scope="col">Nota 2</th>
+                        <th scope="col">nota 3</th>
+                        <th scope="col">Nota 4</th>
+                        <th scope="col">Exámen</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let e of estudiantesNota; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{e.nombre}}</td>
+                        <td>{{e.calificaciones[0].n1}}</td>
+                        <td>{{e.calificaciones[1].n2}}</td>
+                        <td>{{e.calificaciones[2].n3}}</td>
+                        <td>{{e.calificaciones[3].n4}}</td>
+                        <td>{{e.calificaciones[4].examen}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</div>

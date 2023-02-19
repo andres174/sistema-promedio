@@ -18,4 +18,12 @@ export class EstudiantesService {
     /* console.log(form); */
     return this.http.post<any>(this.urlApi + 'estudiantes', form)
   }
+  
+  getEstudiantesSinNota(){
+    return this.http.get<any>(this.urlApi + 'estudiantes-sin-nota');
+  }
+
+  getEstudiantesConNota(){
+    return this.http.get<any>(this.urlApi + 'estudiantes-con-nota');
+  }
 }
