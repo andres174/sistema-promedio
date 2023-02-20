@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EstudiantesService } from 'src/app/services/estudiantes.service';
 
 @Component({
   selector: 'app-ver-calificaciones',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerCalificacionesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiEstudiantes: EstudiantesService) { }
+
+  estudiantes: any[] = [];
 
   ngOnInit(): void {
+    this.index();
   }
+
+  index(){
+    this.apiEstudiantes.getEstudiantesConProm().subscribe({
+      next: (res) => {
+        this.estudiantes = res;
+        console.log(this.estudiantes);
+      },
+      error: (err) => {
+
+      }
+    });
+  }
+
+
 
 }

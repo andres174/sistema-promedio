@@ -29,4 +29,8 @@ export class EstudiantesService {
   getEstudiantesSinProm(){
     return this.http.get<any>(this.urlApi + 'estudiantes-sin-prom');
   }
+
+  getEstudiantesConProm(){
+    return this.http.get<any>(this.urlApi + 'estudiantes-con-prom');
+  }
 }

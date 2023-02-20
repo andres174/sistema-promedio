@@ -1,1 +1,39 @@
-<p>ver-calificaciones works!</p>
+<div class="container">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-10">
+
+
+            <table class="table caption-top">
+                <!-- <caption>Estudiantes sin promedio</caption> -->
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Nota 1</th>
+                        <th scope="col">Nota 2</th>
+                        <th scope="col">Nota 3</th>
+                        <th scope="col">Nota 4</th>
+                        <th scope="col">Exámen</th>
+                        <th scope="col">Promedio</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let e of estudiantes; index as i">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{e.nombre}}</td>
+                        <td>{{e.calificaciones[0].n1}}</td>
+                        <td>{{e.calificaciones[0].n2}}</td>
+                        <td>{{e.calificaciones[0].n3}}</td>
+                        <td>{{e.calificaciones[0].n4}}</td>
+                        <td>{{e.calificaciones[0].examen}}</td>
+                        <td>{{e.promedio}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
