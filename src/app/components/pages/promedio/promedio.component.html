@@ -1,41 +1,80 @@
 <div class="container">
+
+    <div class="row d-flex justify-content-center mt-5" *ngIf="isAdd">
+        <div class="col-10">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex justify-content-center align-items-center text-center">
+                        <div class="col-6">
+                            <h5 class="card-title">
+                                {{estudianteSelect.nombre}}
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center m-2 text-center">
+                        <div class="col-6">
+                            Nota 1: <b>{{estudianteSelect.calificaciones[0].n1}}</b>
+                        </div>
+                        <div class="col-6">
+                            Nota 2: <b>{{estudianteSelect.calificaciones[0].n2}}</b>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center m-2 text-center">
+                        <div class="col-6">
+                            Nota 3: <b>{{estudianteSelect.calificaciones[0].n3}}</b>
+                        </div>
+                        <div class="col-6">
+                            Nota 4: <b>{{estudianteSelect.calificaciones[0].n4}}</b>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center m-2 text-center">
+                        <div class="col-6">
+                            Exámen: <b>{{estudianteSelect.calificaciones[0].examen}}</b>
+                        </div>
+                        <div class="col-6">
+                            Promedio: <b>{{promEstSelect}}</b>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-1">
+                            <button type="button" class="btn btn-primary" (click)="guardar()">
+                                <span class="material-symbols-outlined">
+                                    save
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- TABLA -->
     <div class="row d-flex justify-content-center mt-5" *ngIf="!isAdd">
-        <div class="col-9">
+        <div class="col-10">
+
 
             <table class="table caption-top">
-                <caption>Estudiantes sin nota</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    <tr *ngFor="let e of estudiantesNota; index as i">
-                        <th scope="row">{{i + 1}}</th>
-                        <td>{{e.nombre}}</td>
-                        <td>
-                            <span class="material-symbols-outlined btn" (click)="addNota(e.id)">
-                                add_circle
-                            </span>
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table caption-top">
-                <caption>Estudiantes con nota</caption>
+                <caption>Estudiantes sin promedio</caption>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Nota 1</th>
                         <th scope="col">Nota 2</th>
-                        <th scope="col">nota 3</th>
+                        <th scope="col">Nota 3</th>
                         <th scope="col">Nota 4</th>
                         <th scope="col">Exámen</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -43,10 +82,15 @@
                         <th scope="row">{{i + 1}}</th>
                         <td>{{e.nombre}}</td>
                         <td>{{e.calificaciones[0].n1}}</td>
-                        <td>{{e.calificaciones[1].n2}}</td>
-                        <td>{{e.calificaciones[2].n3}}</td>
-                        <td>{{e.calificaciones[3].n4}}</td>
-                        <td>{{e.calificaciones[4].examen}}</td>
+                        <td>{{e.calificaciones[0].n2}}</td>
+                        <td>{{e.calificaciones[0].n3}}</td>
+                        <td>{{e.calificaciones[0].n4}}</td>
+                        <td>{{e.calificaciones[0].examen}}</td>
+                        <td>
+                            <span class="material-symbols-outlined btn" (click)="calcularPromedio(e)">
+                                add_circle
+                            </span>
+                        </td>
 
                     </tr>
                 </tbody>
