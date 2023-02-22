@@ -23,3 +23,12 @@
 .texto-sombra{
     text-shadow: 1px 1px 1px rgb(63, 63, 63);
 }
+
+body{
+    background-color: #AEB8FE;
+}
+
+table{
+    background-color: #F1F2F6;
+    border-radius: 5px;
+}
